@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import RoomList from "./components/RoomList";
 
 // Initialize Firebase
+
 var config = {
   apiKey: "AIzaSyDMskdSmsckL2wcJ4CGv-UevnnhFFXU-cY",
   authDomain: "bloc-chat-react-b05c0.firebaseapp.com",
