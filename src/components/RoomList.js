@@ -31,24 +31,31 @@ class RoomList extends Component {
     this.setState({ newRoomName: newName });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
+    if (!this.state.newRoomName) {
+      return;
+    }
     this.createRoom(this.state.newRoomName);
+    this.setState({ newRoomName: "" });
+    const form = document.getElementById("create-room");
+    form.reset();
   }
 
   render() {
     return (
       <div>
         <section>
-          {this.state.rooms.map(room => (
-            <li>{room.name}</li>
-          ))}
+          {this.state.rooms.map((room, index) => {
+            return <li key={index}>{room.name}</li>;
+          })}
         </section>
         <section>
-          <form id="create-room" onSubmit={this.handleSubmit.bind(this)}>
+          <form id="create-room" onSubmit={e => this.handleSubmit(e)}>
             <input
               type="text"
               value={this.state.newRoomName}
-              onChange={this.handleChange.bind(this)}
+              onChange={e => this.handleChange(e)}
               name="newRoomName"
               placeholder="Create a new room"
             />
