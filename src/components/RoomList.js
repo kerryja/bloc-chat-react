@@ -38,17 +38,17 @@ class RoomList extends Component {
     }
     this.createRoom(this.state.newRoomName);
     this.setState({ newRoomName: "" });
-    const form = document.getElementById("create-room");
-    form.reset();
   }
 
   render() {
     return (
       <div>
         <section>
-          {this.state.rooms.map((room, index) => {
-            return <li key={index}>{room.name}</li>;
-          })}
+          <ul>
+            {this.state.rooms.map((room, index) => {
+              return <li key={index}>{room.name}</li>;
+            })}
+          </ul>
         </section>
         <section>
           <form id="create-room" onSubmit={e => this.handleSubmit(e)}>
@@ -66,5 +66,7 @@ class RoomList extends Component {
     );
   }
 }
+
+//need to do onclick on {room.name}
 
 export default RoomList;
