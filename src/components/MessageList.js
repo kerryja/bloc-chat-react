@@ -34,7 +34,13 @@ class MessageList extends Component {
             {this.state.messages
               .filter(message => message.roomId === this.props.activeRoom.key)
               .map((message, index) => {
-                return <li key={index}>{message.content}</li>;
+                return (
+                  <li key={index}>
+                    {new Date(message.sentAt).toString()}
+                    {message.username}
+                    {message.content}
+                  </li>
+                );
               })}
           </ul>
         </section>

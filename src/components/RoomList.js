@@ -42,9 +42,7 @@ class RoomList extends Component {
   }
 
   handleRoomClick(room) {
-    //message.roomId;
-    //this.setState({ activeRoom: room });
-    console.log("Hi");
+    this.props.setActiveRoom(room);
   }
 
   render() {
