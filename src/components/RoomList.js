@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import MessageList from "./components/MessageList";
 
 class RoomList extends Component {
   constructor(props) {
@@ -40,13 +41,23 @@ class RoomList extends Component {
     this.setState({ newRoomName: "" });
   }
 
+  handleRoomClick(room) {
+    //message.roomId;
+    //this.setState({ activeRoom: room });
+    console.log("Hi");
+  }
+
   render() {
     return (
       <div>
         <section>
           <ul>
             {this.state.rooms.map((room, index) => {
-              return <li key={index}>{room.name}</li>;
+              return (
+                <li onClick={() => this.handleRoomClick(room)} key={index}>
+                  {room.name}
+                </li>
+              );
             })}
           </ul>
         </section>
@@ -66,7 +77,5 @@ class RoomList extends Component {
     );
   }
 }
-
-//need to do onclick on {room.name}
 
 export default RoomList;
