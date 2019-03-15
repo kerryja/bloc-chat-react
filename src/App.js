@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: { key: 0, name: "" },
-      displayName: ""
+      user: {}
     };
   }
   render() {
@@ -37,8 +37,9 @@ class App extends Component {
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom} />
         <User
           firebase={firebase}
+          user={this.state.user}
           setUser={function(user) {
-            this.setState({ displayName: user });
+            this.setState({ user: user });
           }.bind(this)}
         />
       </div>
