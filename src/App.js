@@ -28,20 +28,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <RoomList
-          firebase={firebase}
-          setActiveRoom={function(newActiveRoom) {
-            this.setState({ activeRoom: newActiveRoom });
-          }.bind(this)}
-        />
-        <MessageList firebase={firebase} activeRoom={this.state.activeRoom} />
-        <User
-          firebase={firebase}
-          user={this.state.user}
-          setUser={function(user) {
-            this.setState({ user: user });
-          }.bind(this)}
-        />
+        <div className="room-container">
+          <p>Bloc Chat</p>
+          <RoomList
+            firebase={firebase}
+            setActiveRoom={function(newActiveRoom) {
+              this.setState({ activeRoom: newActiveRoom });
+            }.bind(this)}
+          />
+        </div>
+        <div className="message-container">
+          <MessageList
+            firebase={firebase}
+            activeRoom={this.state.activeRoom}
+            username={this.state.user ? this.state.user.displayName : "Guest"}
+          />
+        </div>
+
+        <div className="user-container">
+          <User
+            firebase={firebase}
+            user={this.state.user}
+            setUser={function(user) {
+              this.setState({ user: user });
+            }.bind(this)}
+          />
+        </div>
       </div>
     );
   }

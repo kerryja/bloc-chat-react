@@ -48,7 +48,7 @@ class RoomList extends Component {
     return (
       <div>
         <section>
-          <ul>
+          <ul className="rooms">
             {this.state.rooms.map((room, index) => {
               return (
                 <li onClick={() => this.handleRoomClick(room)} key={index}>
@@ -58,7 +58,7 @@ class RoomList extends Component {
             })}
           </ul>
         </section>
-        <section>
+        <section className="rooms">
           <form id="create-room" onSubmit={e => this.handleSubmit(e)}>
             <input
               type="text"

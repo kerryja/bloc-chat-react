@@ -22,10 +22,14 @@ class User extends Component {
 
   render() {
     return (
-      <div>
+      <div className="buttons">
         <button onClick={() => this.signInWithPopUp()}>Sign In</button>
         <button onClick={() => this.signOut()}>Sign Out</button>
-        <p>{this.props.user ? this.props.user.displayName : "Guest"}</p>
+        <div>
+          <p className="greeting">
+            Hello, {this.props.user ? this.props.user.displayName : "Guest"}!
+          </p>
+        </div>
       </div>
     );
   }
